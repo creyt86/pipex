@@ -6,11 +6,11 @@
 /*   By: creyt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 11:07:59 by creyt             #+#    #+#             */
-/*   Updated: 2021/11/09 10:29:50 by creyt            ###   ########.fr       */
+/*   Updated: 2022/06/07 14:00:04 by creyt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../pipex.h"
 
 static int	count_words(const char *s, char c)
 {

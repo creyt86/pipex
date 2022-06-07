@@ -6,11 +6,11 @@
 /*   By: creyt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 14:48:23 by creyt             #+#    #+#             */
-/*   Updated: 2022/01/04 11:04:17 by creyt            ###   ########.fr       */
+/*   Updated: 2022/06/07 14:00:07 by creyt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../pipex.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {

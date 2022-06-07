@@ -6,11 +6,11 @@
 /*   By: creyt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 14:41:46 by creyt             #+#    #+#             */
-/*   Updated: 2022/06/02 15:34:02 by creyt            ###   ########.fr       */
+/*   Updated: 2022/06/07 13:09:23 by creyt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./pipex.h"
+#include "../pipex.h"
 
 void	ft_putstr_fd(char *s, int fd)
 {

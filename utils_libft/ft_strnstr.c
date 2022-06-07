@@ -6,11 +6,11 @@
 /*   By: creyt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 10:31:36 by creyt             #+#    #+#             */
-/*   Updated: 2021/11/09 11:29:27 by creyt            ###   ########.fr       */
+/*   Updated: 2022/06/07 14:00:09 by creyt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../pipex.h"
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
