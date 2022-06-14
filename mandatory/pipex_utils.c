@@ -6,11 +6,11 @@
 /*   By: creyt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 15:32:18 by creyt             #+#    #+#             */
-/*   Updated: 2022/06/07 13:58:32 by creyt            ###   ########.fr       */
+/*   Updated: 2022/06/14 13:27:50 by creyt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "../pipex.h"
 
 char	*find_path(char *command, char **envp)
 {

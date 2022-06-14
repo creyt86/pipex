@@ -6,11 +6,11 @@
 /*   By: creyt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 13:59:12 by creyt             #+#    #+#             */
-/*   Updated: 2022/06/07 14:25:53 by creyt            ###   ########.fr       */
+/*   Updated: 2022/06/14 13:52:47 by creyt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./pipex.h"
+#include "../pipex.h"
 
 void	child_process(char **argv, char **envp, int *fd)
 {
@@ -36,6 +36,30 @@ void	parent_process(char **argv, char **envp, int *fd)
 	dup2(outfile, STDOUT_FILENO);
 	close(fd[1]);
 	exe_cute(argv[3], envp);
+}
+
+int	main(int argc, char **argv, char **envp)
+{
+	int		fd[2];
+	pid_t	pid;
+
+	if (argc == 5)
+	{
+		if (pipe (fd) == -1)
+			p_error();
+		if (pid == -1)
+			p_error();
+		if (pid == 0)
+			child_process(argv, envp, fd);
+		waitpid(pid, NULL, 0);
+		parent_process(argv, envp, fd);
+	}
+	else
+	{
+		ft_putstr_fd("\033[31mError: Bad arguments\n\e[0m", 2);
+		ft_putstr_fd("ex : ./pipex <file1> <cmd1> <cmd2> <file2>\n", 1);
+	}
+	return (0);
 }
 
 /*
