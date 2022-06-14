@@ -6,11 +6,36 @@
 /*   By: creyt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 11:07:59 by creyt             #+#    #+#             */
-/*   Updated: 2022/06/07 14:00:04 by creyt            ###   ########.fr       */
+/*   Updated: 2022/06/14 14:22:34 by creyt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../pipex.h"
+
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	char	*s2;
+	size_t	i;
+	size_t	size;
+
+	i = 0;
+	if (!s)
+		return (0);
+	size = ft_strlen(s);
+	if (size < len)
+		len = size;
+	s2 = malloc(sizeof(char) * (len + 1));
+	if (!s2)
+		return (0);
+	while (i < len && start < size)
+	{
+		s2[i] = ((char)s[start]);
+		i++;
+		start++;
+	}
+	s2[i] = '\0';
+	return (s2);
+}
 
 static int	count_words(const char *s, char c)
 {

@@ -6,7 +6,7 @@
 /*   By: creyt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 13:59:12 by creyt             #+#    #+#             */
-/*   Updated: 2022/06/14 13:52:47 by creyt            ###   ########.fr       */
+/*   Updated: 2022/06/14 17:49:46 by creyt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,10 @@ int	main(int argc, char **argv, char **envp)
 
 	if (argc == 5)
 	{
-		if (pipe (fd) == -1)
+		if (pipe(fd) == -1)
 			p_error();
-		if (pid == -1)
+		pid = fork();
+		if (pid < 0)
 			p_error();
 		if (pid == 0)
 			child_process(argv, envp, fd);
@@ -71,5 +72,5 @@ O_TRUNC = Si le fichier existe, est un fichier régulier, et est ouvert en
 Si le fichier est une FIFO ou un périphérique terminal, l'attribut O_TRUNC
 est ignoré. Sinon, le comportement de O_TRUNC n'est pas précisé.
 Sur de nombreuses versions de Linux, il sera ignoré ; sur d'autres versions
-il déclenchera une erreur).
+il déclenchera une erreur.
 */
