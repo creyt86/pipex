@@ -6,7 +6,7 @@
 /*   By: creyt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 14:12:21 by creyt             #+#    #+#             */
-/*   Updated: 2022/06/14 15:04:03 by creyt            ###   ########.fr       */
+/*   Updated: 2022/06/16 13:34:20 by creyt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	error_arg(void)
 	exit(EXIT_SUCCESS);
 }
 
-int	open_file(char **argv, int i)
+int	open_file(char *argv, int i)
 {
 	int	file;
 
@@ -27,7 +27,7 @@ int	open_file(char **argv, int i)
 	if (i == 0)
 		file = open(argv, O_WRONLY | O_CREAT | O_APPEND, 0777);
 	else if (i == 1)
-		file == open (argv, O_WRONLY | O_CREAT | O_TRUNC, 0777);
+		file = open (argv, O_WRONLY | O_CREAT | O_TRUNC, 0777);
 	else if (i == 2)
 		file = open(argv, O_RDONLY, 0777);
 	if (file < 0)

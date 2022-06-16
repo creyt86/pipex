@@ -6,7 +6,7 @@
 /*   By: creyt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 10:54:21 by creyt             #+#    #+#             */
-/*   Updated: 2022/06/14 16:12:15 by creyt            ###   ########.fr       */
+/*   Updated: 2022/06/16 13:34:42 by creyt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,6 @@ void	p_error(void);
 void	exe_cute(char *argv, char **envp);
 
 void	error_arg(void);
-int		open_file(char **argv, int i);
+int		open_file(char *argv, int i);
 
 #endif

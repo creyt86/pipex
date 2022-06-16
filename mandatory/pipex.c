@@ -6,7 +6,7 @@
 /*   By: creyt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 13:59:12 by creyt             #+#    #+#             */
-/*   Updated: 2022/06/14 17:49:46 by creyt            ###   ########.fr       */
+/*   Updated: 2022/06/16 16:58:48 by creyt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int	main(int argc, char **argv, char **envp)
 	int		fd[2];
 	pid_t	pid;
 
+		write(STDOUT_FILENO, "c", 1);
 	if (argc == 5)
 	{
 		if (pipe(fd) == -1)
@@ -54,6 +55,7 @@ int	main(int argc, char **argv, char **envp)
 			child_process(argv, envp, fd);
 		waitpid(pid, NULL, 0);
 		parent_process(argv, envp, fd);
+		write(STDOUT_FILENO, "c", 1);
 	}
 	else
 	{
