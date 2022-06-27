@@ -6,7 +6,7 @@
 /*   By: creyt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 14:40:07 by creyt             #+#    #+#             */
-/*   Updated: 2022/06/16 16:53:05 by creyt            ###   ########.fr       */
+/*   Updated: 2022/06/21 13:43:40 by creyt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,13 +57,13 @@ void	here_doc(char *keyword, int argc)
 	if (reader == 0)
 	{
 		close(fd[0]);
-		write(1, "heredoc> ", 9);
+		write(1, "pipe heredoc> ", 14);
 		while (get_next_line(&line))
 		{
 			if (ft_strncmp(line, keyword, ft_strlen(keyword)) == 0)
 				exit(EXIT_SUCCESS);
 			write(fd[1], line, ft_strlen(line));
-			write(1, "heredoc> ", 9);
+			write(1, "pipe heredoc> ", 14);
 		}
 	}
 	else
@@ -97,11 +97,10 @@ int	main(int argc, char **argv, char **envp)
 		exe_cute(argv[argc - 2], envp);
 	}
 	error_arg();
-	// while (1)
-	// 	;
 }
 
-/*{
+/*
+{
 	char	*line;
 	char	*name;
 

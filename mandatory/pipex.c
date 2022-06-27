@@ -6,7 +6,7 @@
 /*   By: creyt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 13:59:12 by creyt             #+#    #+#             */
-/*   Updated: 2022/06/16 16:58:48 by creyt            ###   ########.fr       */
+/*   Updated: 2022/06/21 11:13:50 by creyt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	child_process(char **argv, char **envp, int *fd)
 	if (infile == -1)
 		p_error();
 	dup2(fd[1], STDOUT_FILENO);
+	close(fd[1]);
 	dup2(infile, STDIN_FILENO);
 	close(fd[0]);
 	exe_cute(argv[2], envp);
@@ -33,6 +34,7 @@ void	parent_process(char **argv, char **envp, int *fd)
 	if (outfile == -1)
 		p_error();
 	dup2(fd[0], STDIN_FILENO);
+	close(fd[0]);
 	dup2(outfile, STDOUT_FILENO);
 	close(fd[1]);
 	exe_cute(argv[3], envp);
@@ -43,7 +45,6 @@ int	main(int argc, char **argv, char **envp)
 	int		fd[2];
 	pid_t	pid;
 
-		write(STDOUT_FILENO, "c", 1);
 	if (argc == 5)
 	{
 		if (pipe(fd) == -1)
@@ -55,7 +56,6 @@ int	main(int argc, char **argv, char **envp)
 			child_process(argv, envp, fd);
 		waitpid(pid, NULL, 0);
 		parent_process(argv, envp, fd);
-		write(STDOUT_FILENO, "c", 1);
 	}
 	else
 	{
